@@ -81,11 +81,15 @@ public class GameManager : MonoBehaviour
     public void GameOverConfirmed()
     {
         //called when replay button is pressed
+        OnGameOverConfirmed();
+        SetPageState(PageState.Start);
     }
 
     public void StartGame()
     {
         //called when play button is pressed
+        SetPageState(PageState.CountDown);
+        
     }
 
     // Start is called before the first frame update
