@@ -45,6 +45,49 @@ public class GameManager : MonoBehaviour
         Instance = this;
     }
 
+    //activate or deactivate screens based on the state
+    void SetPageState(PageState state)
+    {
+        switch (state)
+        {
+            case PageState.None:
+                startScreen.SetActive(false);
+                gameOverScreen.SetActive(false);
+                countdownScreen.SetActive(false);
+                break;
+
+            case PageState.Start:
+                startScreen.SetActive(true);
+                gameOverScreen.SetActive(false);
+                countdownScreen.SetActive(false);
+                break;
+
+            case PageState.GameOver:
+                startScreen.SetActive(false);
+                gameOverScreen.SetActive(true);
+                countdownScreen.SetActive(false);
+                break;
+
+            case PageState.CountDown:
+                startScreen.SetActive(false);
+                gameOverScreen.SetActive(false);
+                countdownScreen.SetActive(true);
+                break;
+        }
+    }
+
+    //methods that will be called when buttons on ui are pressed
+
+    public void GameOverConfirmed()
+    {
+        //called when replay button is pressed
+    }
+
+    public void StartGame()
+    {
+        //called when play button is pressed
+    }
+
     // Start is called before the first frame update
     void Start()
     {
